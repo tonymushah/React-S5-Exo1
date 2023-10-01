@@ -3,8 +3,8 @@ import { Button, HStack, Input, InputGroup, InputRightAddon } from "@chakra-ui/r
 export default function HeaderSearchBar(){
     return (
         <HStack>
-            <InputGroup size={"lg"}>
-                <Input placeholder="Type something" />
+            <InputGroup size={"md"}>
+                <Input placeholder="Type something" color={"gray.100"} />
                 <InputRightAddon>
                     <Button>
                         Search
