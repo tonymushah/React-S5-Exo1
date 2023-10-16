@@ -1,9 +1,9 @@
 import React from "react";
-import { Product } from "../../../../types/Product";
 import { context } from "./context";
+import { spiltedDataAtom } from "../../../../lib/data/test";
 
 export default function AllProductContextProvider({ value, children } : React.PropsWithChildren<{
-    value: Array<Product>
+    value: typeof spiltedDataAtom
 }>){
     return (
         <context.Provider value={value}>

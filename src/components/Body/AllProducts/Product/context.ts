@@ -1,4 +1,4 @@
 import React from "react";
-import { Product } from "../../../../types/Product";
+import { spiltedDataAtom } from "../../../../lib/data/test";
 
-export const context = React.createContext<Array<Product> | undefined>(undefined);
+export const context = React.createContext<typeof spiltedDataAtom | undefined>(undefined);

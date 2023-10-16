@@ -1,24 +1,17 @@
-import { Box, Button, Card, CardBody, Heading, Image, Text, VStack } from "@chakra-ui/react";
-import React from "react";
 import { Product } from "../../../types/Product";
+import { PrimitiveAtom } from "jotai";
+import ProductSimpleCardProvider from "./Provider";
+import Layout from "./Inner/Layout";
+import Body from "./Inner/Body";
 
-export default function ProductSimpleCard({ value }: {
-    value: Product
+export default function ProductSimpleCard({ value: _value_ }: {
+    value: PrimitiveAtom<Product>
 }) {
-    const { image, name, price, stock } = React.useMemo(() => value, [value]);
     return (
-        <Card width={"12em"}>
-            <Image src={image} />
-            <CardBody>
-                <VStack alignItems={"start"}>
-                    <Heading size={"md"}>{name}</Heading>
-                    <Text>Price: {price} Ar</Text>
-                    <Text>Stock: {stock}</Text>
-                    <Box alignSelf={"center"}>
-                        <Button size={"sm"} colorScheme={"facebook"}>Add to Card</Button>
-                    </Box>
-                </VStack>
-            </CardBody>
-        </Card>
-    )
+        <ProductSimpleCardProvider value={_value_}>
+            <Layout>
+                <Body/>
+            </Layout>
+        </ProductSimpleCardProvider>
+    );
 }
