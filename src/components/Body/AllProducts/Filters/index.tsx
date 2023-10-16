@@ -1,37 +1,24 @@
 import {
-    Card, CardHeader, HStack, Heading, Text,
-    //IconButton, 
-    NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, VStack
+    Card, CardHeader, HStack, Heading,
+    VStack
 } from '@chakra-ui/react';
+import FilterActiveSwitch from './FilterActiveSwitch';
+import NumberInputWithAtom from './NumberInputWithAtom';
+import { prixMaxAtom, prixMinAtom } from './atoms';
 
 export default function Filters() {
     return (
         <Card borderColor={"gray.500"} borderWidth={"1px"}>
             <CardHeader>
-                <Heading size={"md"} >
-                    Filter
-                </Heading>
+                <HStack>
+                    <Heading size={"md"} >
+                        Filter
+                    </Heading>
+                    <FilterActiveSwitch />
+                </HStack>
                 <VStack>
-                    <NumberInput as={HStack}>
-                        <Text>Prix&nbsp;Min&nbsp;: </Text>
-                        <NumberInputField />
-                        <VStack>
-                            <NumberIncrementStepper />
-                            <NumberDecrementStepper
-                            //as={<IconButton aria-label='Decrement' icon={<Chevr} />} 
-                            />
-                        </VStack>
-                    </NumberInput>
-                    <NumberInput as={HStack}>
-                        <Text>Prix&nbsp;Max&nbsp;: </Text>
-                        <NumberInputField />
-                        <VStack>
-                            <NumberIncrementStepper />
-                            <NumberDecrementStepper
-                            //as={<IconButton aria-label='Decrement' icon={<Chevr} />} 
-                            />
-                        </VStack>
-                    </NumberInput>
+                    <NumberInputWithAtom title="Prix&nbsp;Min&nbsp;: " atom={prixMinAtom} />
+                    <NumberInputWithAtom title="Prix&nbsp;Max&nbsp;: " atom={prixMaxAtom} />
                 </VStack>
             </CardHeader>
         </Card>
